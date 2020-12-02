@@ -1,0 +1,185 @@
+# -*- org-reveal-title-slide: "<h1>%t</h1><p>%a</p><p>%s</p><img src='figures/banner_ox_rse.svg>"; -*-
+#+TITLE:Reproducible research with GNU Emacs and Org-mode
+#+AUTHOR: Thibault Lestang
+#+SUBTITLE: Department of Computer Science, University of Oxford
+#+OPTIONS: toc:nil num:nil reveal_title_slide:nil
+#+REVEAL_THEME: mysimple
+#+REVEAL_INIT_OPTIONS: transition:'none'
+
+* Keeping everything consistent
+#+begin_center
+  #+ATTR_HTML: :width 50%
+  [[file:figures/microscopeetc.png]]
+#+end_center
+
+  #+BEGIN_NOTES
+  - Scientific research is made of a wide range of activities (data collection, data processing, making figures, writing papers)
+  - Difficult to keep track of data, software, figures from one step to another.
+  - Instead we want to work in an environment that makes keeping
+    things consistent easy, almost like we don't have to think about
+    it.
+  #+END_NOTES
+
+* Facilitating research reproducibility
+  
+  - Clear relationship between data, code and analysis.
+  - Portable and sustainable tools and formats.
+
+    #+BEGIN_NOTES
+    - When we look at data, we wanna see what generated it.
+    - When we look at a figure, we wanna see what generated it, and from which data
+    - When we change the data, we don't want to have to manually do the analysis again, that's when errors occur.
+    - We want the software we use to be usable by anyone, especially across OSs and versions of them.
+    - We also want to use tools and formats that will be usable in the future.
+    #+END_NOTES
+
+* Example workflow
+
+  [[file:~/org/data/35/9f5606-d698-41fe-93d1-c1ee98bdc81b/presentation/figures/workflow-wide.png]]
+  
+  #+ATTR_HTML: :style font-size: small; text-align: right;
+  From Kieran Healy, /The Plain Person's Guide To Plain Text Social Science/
+
+  #+BEGIN_NOTES
+  - Workflows for reproducible science topically look like this.
+  - Clear pathway between data and paper. Plain text.
+  - Complicated, many different moving part. Specific to R.
+  #+END_NOTES
+
+* GNU Emacs and Org-mode
+
+#+begin_center
+  #+ATTR_HTML: :width 400
+  [[file:figures/emacs-orgmode.png]]
+#+end_center
+
+#+begin_center
+Or how to bundle software, data and analysis in a single plain text file.
+#+end_center
+
+#+BEGIN_NOTES
+- With Org-mode, we can achieve a similar workflow, not restricted to
+  a particular language.
+- Using Emacs also allows to make all the steps from within Emacs. So
+  writing code, exectuting it, gathering outputs, making figures,
+  writing your paper, exporting. All of that can be done from within
+  one integrated and consistent environemnt,
+- Let's see what it looks like.
+#+END_NOTES
+
+* Emacs: used by many, but not widely
+  - Too old?
+  - Ugly?
+  - Not intuitive?
+
+  Overall, GNU Emacs has a reputation of being for "experts".
+  
+  #+begin_notes
+  So if Emacs is so useful, why isn't it more popular among researchers?
+  
+  - Emacs has a long history, but is certainaly not obsolete. We saw
+    it comes with very modern ideas and functionalitirs.
+  - It's been maintained and extended over more than 35 years which is
+    very long in terms of sfotware lifetime! Mostly Maintained by its own
+    community of users, inpedantly of any commercial purpose. This
+    sets aside Emacs from other editors,and I think explains why Emacs
+    feels and look different from other software we use day by day,
+    and explain some of its peculiarities.
+  
+  - Emacs encourages users to invest a bit of time in to become
+    confortable and make it your own.  This philosophy does match well
+    with the pubish or perish environement that many researchers
+    evolve in.
+  #+end_notes
+
+* So why Emacs/Org-mode ?
+  
+  *Beyond editing text*, GNU Emacs as a work environment:
+
+  - Consistent
+  - Efficient
+  - Portable
+  - Sustainable
+
+  Particularly suited for *open* and *reproducible* research.
+
+  #+begin_notes
+  - It's a shame because the return on investement can be massive.
+  - THis investement doenst have to cost much, setting 30min aside and
+    going through the tutorial can already bring a long way!
+  - What you gain from Emacs is a work environment that's particularly well suited for
+    research.
+  #+end_notes
+
+* Your research in plain text!
+
+  #+begin_src org
+    ,* <2020-11-22 Sun>
+    ,** First look at the data
+       Simulations ran all week end 
+       ,#+begin_src python
+       import numpy as np
+       ...
+       ,#+end_src
+  #+end_src
+
+The most portable and future-proof format.
+
+#+begin_notes
+With Emacs/Org-mode, everything is text.
+- You can read it, modify it everywhere, and anyone can.
+- Version control
+- It's great to work with, you can use a text editor
+- I likw this idea of, working on plain text, focusing on the content and strucutre,
+  and then, as a separate step, exporting to a richer format and focusing on the look of it.
+#+end_notes
+
+* Wherever you go, you will find GNU Emacs...
+
+#+begin_center
+  #+ATTR_HTML: :width 75%
+  [[file:figures/emacs-site-screenshot.png]]
+#+end_center
+
+#+begin_notes
+- Org-mode comes within GNU Emacs, and you can find it anywhere
+- Don't even need a graphical interface. If you're working on a remote
+  server through ssh for instance, you can still use Emacs.
+#+end_notes
+
+* GNU Emacs and Org-mode are free/libre software
+
+  - No restriction on use
+  - Anyone can read/modify the source code
+  - Anyone can redistribute ("fork") it
+
+  Maintained and extended by users, since '85
+
+#+begin_notes
+The last point I want to make is that Emacs and Org-mode are free(dom) software.
+- No restriction - doesn't cost anything to use. Good for people in
+  smaller universities, or generally in countries where research
+  doesn't receive has much funding.
+- Anyone can read and mdify the sourcode. Not useful for you because
+  it demands time and specific skills, *important* point is that other
+  people can and they do. Bugs are fixed, software is extended, all of
+  that as a community effort.
+- No company behind Emacs and Org-mode. The whole Emacs ecosystem is a
+  communtiy effort, that's not driven by any private interest.
+- I want to conclude this talk by saying that this specific apsect of
+  Emacs makes it particularly suited from academic research.
+#+end_notes
+
+* Give Org-mode a try!
+
+#+begin_center
+  #+ATTR_HTML: :width 75%
+  [[file:figures/orgmode-getting-started.png]]
+#+end_center
+
+  [[https://orgmode.org]]
+
+  #+begin_notes
+  That's it for me, I hope you found the talk interesting and that it
+  gave you food for thoughts, and please feel free to ask me any questions now!
+  #+end_notes

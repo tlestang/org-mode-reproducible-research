@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Reproducible research with GNU Emacs and Org-mode</title>
+<meta name="author" content="(Thibault Lestang)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///home/thibault/tools/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="file:///home/thibault/tools/reveal.js/dist/theme/mysimple.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///home/thibault/tools/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+    <div class="reveal">
+	<div class="slides">
+
+	    <section id="sec-title-slide">
+		<h1>Reproducible research with GNU Emacs and Org-mode</h1>
+		<p>Thibault Lestang</p>
+		<p>Department of Computer Science,<br/> University of Oxford</p>
+		<div style="display: flex; justify-content: space-around">
+		    <img src="figures/banner.svg" width="50%">
+		</div>
+		<aside class="notes">
+		    <ul>
+			<li>I'd like to show you how GNU Emacs can be a fantastic tool for research</li>
+			<li>In particular, I'd like to give you a taste of Org-mode, a specific part of GNU Emacs, that was initally developed by a research for researchers, and that is making it very easy to maintain consistency and reproducibility throughout the research process.
+		    </ul>
+
+		</aside>
+	    </section>
+	    
+<section>
+<section id="slide-org7f92bfe">
+<h2 id="org7f92bfe">Keeping everything consistent</h2>
+<div class="org-center">
+
+<div class="figure">
+<p><img src="figures/microscopeetc.png" alt="microscopeetc.png" width="50%" />
+</p>
+</div>
+</div>
+
+<aside class="notes">
+<ul>
+<li>Scientific research is made of a wide range of activities (data collection, data processing, making figures, writing papers)</li>
+<li>Difficult to keep track of data, software, figures from one step to another.</li>
+<li>Instead we want to work in an environment that makes keeping
+things consistent easy, almost like we don't have to think about
+it.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org03bf920">
+<h2 id="org03bf920">Facilitating research reproducibility</h2>
+<ul>
+<li>Clear relationship between data, code and analysis.</li>
+<li><p>
+Portable and sustainable tools and formats.
+</p>
+
+<aside class="notes">
+<ul>
+<li>When we look at data, we wanna see what generated it.</li>
+<li>When we look at a figure, we wanna see what generated it, and from which data</li>
+<li>When we change the data, we don't want to have to manually do the analysis again, that's when errors occur.</li>
+<li>We want the software we use to be usable by anyone, especially across OSs and versions of them.</li>
+<li>We also want to use tools and formats that will be usable in the future.</li>
+
+</ul>
+
+</aside></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgde0f7e8">
+<h2 id="orgde0f7e8">Example workflow</h2>
+
+<div class="figure">
+<p><img src="file:///home/thibault/org/data/35/9f5606-d698-41fe-93d1-c1ee98bdc81b/presentation/figures/workflow-wide.png" alt="workflow-wide.png" />
+</p>
+</div>
+
+<p style="font-size: small; text-align: right;">
+From Kieran Healy, <i>The Plain Person's Guide To Plain Text Social Science</i>
+</p>
+
+<aside class="notes">
+<ul>
+<li>Workflows for reproducible science topically look like this.</li>
+<li>Clear pathway between data and paper. Plain text.</li>
+<li>Complicated, many different moving part. Specific to R.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgad4f502">
+<h2 id="orgad4f502">GNU Emacs and Org-mode</h2>
+<div class="org-center">
+
+<div class="figure">
+<p><img src="figures/emacs-orgmode.png" alt="emacs-orgmode.png" width="400" />
+</p>
+</div>
+</div>
+
+<div class="org-center">
+<p>
+Or how to bundle software, data and analysis in a single plain text file.
+</p>
+</div>
+
+<aside class="notes">
+<ul>
+<li>With Org-mode, we can achieve a similar workflow, not restricted to
+a particular language.</li>
+<li>Using Emacs also allows to make all the steps from within Emacs. So
+writing code, exectuting it, gathering outputs, making figures,
+writing your paper, exporting. All of that can be done from within
+one integrated and consistent environemnt,</li>
+<li>Let's see what it looks like.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org4f9a886">
+<h2 id="org4f9a886">Emacs: used by many, but not widely</h2>
+<ul>
+<li>Too old?</li>
+<li>Ugly?</li>
+<li>Not intuitive?</li>
+
+</ul>
+
+<p>
+Overall, GNU Emacs has a reputation of being for "experts".
+</p>
+
+<aside class="notes">
+<p>
+So if Emacs is so useful, why isn't it more popular among researchers?
+</p>
+
+<ul>
+<li>Emacs has a long history, but is certainaly not obsolete. We saw
+it comes with very modern ideas and functionalitirs.</li>
+<li>It's been maintained and extended over more than 35 years which is
+very long in terms of sfotware lifetime! Mostly Maintained by its own
+community of users, inpedantly of any commercial purpose. This
+sets aside Emacs from other editors,and I think explains why Emacs
+feels and look different from other software we use day by day,
+and explain some of its peculiarities.</li>
+
+<li>Emacs encourages users to invest a bit of time in to become
+confortable and make it your own.  This philosophy does match well
+with the pubish or perish environement that many researchers
+evolve in.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org9962a2c">
+<h2 id="org9962a2c">So why Emacs/Org-mode ?</h2>
+<p>
+<b>Beyond editing text</b>, GNU Emacs as a work environment:
+</p>
+
+<ul>
+<li>Consistent</li>
+<li>Efficient</li>
+<li>Portable</li>
+<li>Sustainable</li>
+
+</ul>
+
+<p>
+Particularly suited for <b>open</b> and <b>reproducible</b> research.
+</p>
+
+<aside class="notes">
+<ul>
+<li>It's a shame because the return on investement can be massive.</li>
+<li>THis investement doenst have to cost much, setting 30min aside and
+going through the tutorial can already bring a long way!</li>
+<li>What you gain from Emacs is a work environment that's particularly well suited for
+research.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org34c3263">
+<h2 id="org34c3263">Your research in plain text!</h2>
+<div class="org-src-container">
+
+<pre  class="src src-org"><code trim><span style="color: #a9df90;">* </span><span style="color: #00ffff; text-decoration: underline;">&lt;2020-11-22 Sun&gt;</span>
+<span style="color: #aaca86;">** First look at the data</span>
+   Simulations ran all week end 
+<span style="color: #857575;">   #+begin_src python</span>
+<span style="color: #b3b3b3;">   </span><span style="color: #91a0b3;">import</span><span style="color: #b3b3b3;"> numpy </span><span style="color: #91a0b3;">as</span><span style="color: #b3b3b3;"> np</span>
+<span style="color: #b3b3b3;">   ...</span>
+<span style="color: #857575;">   #+end_src</span>
+</code></pre>
+</div>
+
+<p>
+The most portable and future-proof format.
+</p>
+
+<aside class="notes">
+<p>
+With Emacs/Org-mode, everything is text.
+</p>
+<ul>
+<li>You can read it, modify it everywhere, and anyone can.</li>
+<li>Version control</li>
+<li>It's great to work with, you can use a text editor</li>
+<li>I likw this idea of, working on plain text, focusing on the content and strucutre,
+and then, as a separate step, exporting to a richer format and focusing on the look of it.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org19a1ce0">
+<h2 id="org19a1ce0">Wherever you go, you will find GNU Emacs&#x2026;</h2>
+<div class="org-center">
+
+<div class="figure">
+<p><img src="figures/emacs-site-screenshot.png" alt="emacs-site-screenshot.png" width="75%" />
+</p>
+</div>
+</div>
+
+<aside class="notes">
+<ul>
+<li>Org-mode comes within GNU Emacs, and you can find it anywhere</li>
+<li>Don't even need a graphical interface. If you're working on a remote
+server through ssh for instance, you can still use Emacs.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc72f405">
+<h2 id="orgc72f405">GNU Emacs and Org-mode are free/libre software</h2>
+<ul>
+<li>No restriction on use</li>
+<li>Anyone can read/modify the source code</li>
+<li>Anyone can redistribute ("fork") it</li>
+
+</ul>
+
+<p>
+Maintained and extended by users, since '85
+</p>
+
+<aside class="notes">
+<p>
+The last point I want to make is that Emacs and Org-mode are free(dom) software.
+</p>
+<ul>
+<li>No restriction - doesn't cost anything to use. Good for people in
+smaller universities, or generally in countries where research
+doesn't receive has much funding.</li>
+<li>Anyone can read and mdify the sourcode. Not useful for you because
+it demands time and specific skills, <b>important</b> point is that other
+people can and they do. Bugs are fixed, software is extended, all of
+that as a community effort.</li>
+<li>No company behind Emacs and Org-mode. The whole Emacs ecosystem is a
+communtiy effort, that's not driven by any private interest.</li>
+<li>I want to conclude this talk by saying that this specific apsect of
+Emacs makes it particularly suited from academic research.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb86d83b">
+<h2 id="orgb86d83b">Give Org-mode a try!</h2>
+<div class="org-center">
+
+<div class="figure">
+<p><img src="figures/orgmode-getting-started.png" alt="orgmode-getting-started.png" width="75%" />
+</p>
+</div>
+</div>
+
+<p>
+<a href="https://orgmode.org">https://orgmode.org</a>
+</p>
+
+<aside class="notes">
+<p>
+That's it for me, I hope you found the talk interesting and that it
+gave you food for thoughts, and please feel free to ask me any questions now!
+</p>
+
+</aside>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/thibault/tools/reveal.js/dist/reveal.js"></script>
+<script src="file:///home/thibault/tools/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="file:///home/thibault/tools/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="file:///home/thibault/tools/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown,RevealZoom,RevealNotes],
+transition:'none',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+]
+});
+</script>
+</body>
+</html>

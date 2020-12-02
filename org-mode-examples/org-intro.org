@@ -1,0 +1,36 @@
+#+STARTUP: showall
+* What is Org-mode
+
+Org-mode is a /major mode/ of GNU Emacs.
+
+It displays text files in a way that helps structuring documents,
+according to a *simple syntax*.
+
+Writing Org files is a bit like writing with light markup languages
+such as:
+
+- Markdown
+  - A sublist
+- AsciiDoc
+- RestructuredText
+- ...
+
+Org has a [[https://orgmode.org][brand new website]].
+* Another header
+
+* Org is great to work with
+* A subheader
+** Document are meant to be "exported"
+
+Plain text is great to work with, but not to read/publish.
+It's straightforward to generate nicely formatted documents from Org:
+- PDF (using latex)
+- HTML
+- ODT
+
+A lot of third party exporters developped by the community:
+
+- Markdown
+- Hugo website
+- ...
+
