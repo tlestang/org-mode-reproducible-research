@@ -1,0 +1,37 @@
+*** GNU Emacs and Org-mode for reproducible research
+
+Hi there, this is a repo containing the content of a presentation I
+gave at the [[https://www.be-rse.org/rsdd2020][Research Software Developers Day 2020]] on using GNU Emacs
+and org-mode for reproducible research.
+
+The take home message for the talk is that Emacs is a great tool for
+research, because it makes straightforward to link data, software and
+analysis together, in a single (or a collection) of living, executable
+and consistent documents.  Furthermore, everything is based on plain
+text, which makes for great portability and longevity.  Lastly, GNU
+Emacs is free (as in freedom) software, continuously maintained and
+extended by its community of users since over 35 years. This makes GNU
+Emacs a powerful and trustworthy tool, that each research can
+contribute to - very much like the research process itself!
+
+This repo holds two directories:
+
+- ~presentation~: the slides, written in Org.
+- ~org-mode-examples~: the examples shown during the presentation.
+  + ~org-intro.org~: A simple document illustrating the basics of
+    org-mode, mostly its use as a markup language.
+  + ~RR.org~: A larger file illustrating how Org-mode can be used to
+    write consistent executable documents bundling together data,
+    software and analysis, hence greatly enhancing reproducibility of
+    research.
+
+*** Resources
+
+- org-mode official website: https://orgmode.org/
+- [[https://orgmode.org/manual/][org-mode manual]] (the above mostly focuses on features discussed in
+  [[https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code][Chapter 15: Working with source code]])
+- [[https://orgmode.org/worg/][worg (the World of Org)]]: A community collection of resources on
+  Org-mode, complementary to the official docs.
+- [[https://orgmode.org/worg/org-contrib/babel/][Babel: active code in Org-mode]] on Worg (the World of Org)
+- A great video on writing [[https://www.youtube.com/watch?v=0g9BcZvQbXU][Consistent Technical Documents Using Emacs
+  and Org Mode]] (YouTube - 22').
